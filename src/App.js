@@ -129,19 +129,11 @@ const App = () => {
   const handleSave = useCallback(() => {
     setErrorMessage(null); // Clear previous errors
 
-    // Rule: More than one Nodes and more than one Node has empty target handles
-    if (nodes.length > 1) {
+     if (nodes.length > 1) {
       const nodesWithEmptyTargetHandles = nodes.filter((node) => {
-        // A node has an "empty target handle" if no edge connects to its target.
-        // In React Flow, "target handle" typically refers to the left side of the node.
-        // We are checking if a node is *not* a target for any edge.
         return !edges.some((edge) => edge.target === node.id);
       });
 
-      // Exclude the starting node if it's not expected to have incoming edges
-      // For a chatbot, usually the first message node wouldn't have an incoming edge.
-      // This part might need adjustment based on specific flow requirements.
-      // For simplicity, let's just count nodes without incoming edges.
       if (nodesWithEmptyTargetHandles.length > 1) {
         setErrorMessage('Cannot save Flow: More than one node has an empty target handle.');
         return;

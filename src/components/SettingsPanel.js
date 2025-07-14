@@ -1,4 +1,3 @@
-// src/components/SettingsPanel.js
 import React, { useEffect, useState } from 'react';
 
 const SettingsPanel = ({ node, onMessageChange }) => {
