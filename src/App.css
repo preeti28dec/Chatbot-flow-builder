@@ -1,8 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* src/App.css */
-/* You might not need much here as Tailwind handles most of it, but useful for React Flow specifics */
 
 .dnd-flow .reactflow-wrapper {
   flex-grow: 1;
